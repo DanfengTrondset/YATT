@@ -12,10 +12,10 @@ public class HibernateUtil {
 
     static {
         try {
-            Configuration config = new Configuration();
+            Configuration config = new Configuration().configure();
             ServiceRegistry sr = new StandardServiceRegistryBuilder()
                     .applySettings(config.getProperties()).build();
-            sessionFactory = config.configure().buildSessionFactory(sr);
+            sessionFactory = config.buildSessionFactory(sr);
         } catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
