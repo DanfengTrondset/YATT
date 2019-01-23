@@ -21,7 +21,7 @@
             }
             #container_login{
                 padding: 0px;
-                width: 37%;
+                width: 50%;
                 margin: auto;
             }
 

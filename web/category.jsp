@@ -9,16 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/yattbean.css">
-        <title>YATT Online Store</title>
+        <link rel="stylesheet" type="text/css" href="css/yatt.css">
+        <title>YATT Category</title>
     </head>
     <body>
         <div id="main">
             <div id="header">
                 <div id="widgetBar">
-                    
+
                     <div class="headerWidget">
-                       shopping cart
+                        <a href="cart.jsp">shopping cart</a>
                     </div>
 
                 </div>
@@ -37,7 +37,7 @@
                             <img src="#" alt="product image">
                         </td>
                         <td class="lightBlue">
-                             product name
+                            product name
                             <br>
                             <span class="smallText">product description</span>
                         </td>
