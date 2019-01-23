@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +20,13 @@ public class AccountServlet extends HttpServlet {
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        PrintWriter writer = response.getWriter();
-        writer.println(email + password);
+        if (DBController.loginUser(email, password)) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            // Notify user
+        }
+
     }
 
     @Override
