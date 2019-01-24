@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 23-Jan-2019 19:21:32 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Category" table="category" catalog="yattdb" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -10,6 +9,9 @@
         </id>
         <property name="name" type="string">
             <column name="name" length="45" not-null="true" />
+        </property>
+        <property name="imageUrl" type="string">
+            <column name="imageURL" length="45" />
         </property>
         <set name="products" table="category_has_product" inverse="false" lazy="true" fetch="select">
             <key>
