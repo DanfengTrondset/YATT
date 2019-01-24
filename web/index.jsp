@@ -1,8 +1,15 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
     Document   : index
     Created on : Jan 22, 2019, 11:23:05 PM
     Author     : safaa
 --%>
+
+<sql:query var="categories" dataSource="jdbc/yatt">
+    SELECT * FROM category
+</sql:query>
+    
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,36 +39,17 @@
             </div>
 
             <div id="indexRightColumn">
-                <div class="categoryBox">
-                    <a href="category.jsp">
-                        <span class="categoryLabelText">Tops</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="category.jsp">
-                        <span class="categoryLabelText">Bottoms</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="category.jsp">
-                        <span class="categoryLabelText">Dresses</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="category.jsp">
-                        <span class="categoryLabelText">Accessories</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="category.jsp">
-                        <span class="categoryLabelText">Underwear</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="category.jsp">
-                        <span class="categoryLabelText">Gift Card</span>
-                    </a>
-                </div>
+                <c:forEach var="category" items="${categories.rows}">
+                    <div class="categoryBox">
+                        <a href="category?${category.id}">
+                            <span class="categoryLabel"></span>
+                            <span class="categoryLabelText">${category.name}</span>
+
+                            <img src="${initParam.categoryImagePath}${category.name}.jpg"
+                                 alt="${category.name}" class="categoryImage">
+                        </a>
+                    </div>
+                </c:forEach> 
             </div>
 
             <div id="footer">
