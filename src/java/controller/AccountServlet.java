@@ -25,7 +25,7 @@ public class AccountServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             if (DBController.loginUser(email, password)) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/welcome.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
                 dispatcher.forward(request, response);
             } else {
                 // Notify user

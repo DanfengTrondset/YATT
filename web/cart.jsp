@@ -22,7 +22,7 @@
 
                 <div id="actionBar">
                     <a href="#" class="bubble hMargin">clear cart</a>
-                    <a href="welcome.jsp" class="bubble hMargin">continue shopping</a>
+                    <a href="index.jsp" class="bubble hMargin">continue shopping</a>
                     <a href="checkout.jsp" class="bubble hMargin">checkout</a>
                 </div>
 
