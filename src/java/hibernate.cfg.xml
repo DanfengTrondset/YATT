@@ -9,8 +9,8 @@
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="model/Product.hbm.xml"/>
     <mapping resource="model/Customer.hbm.xml"/>
+    <mapping resource="model/Product.hbm.xml"/>
     <mapping resource="model/Cart.hbm.xml"/>
     <mapping resource="model/Category.hbm.xml"/>
   </session-factory>
