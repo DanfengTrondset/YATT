@@ -4,6 +4,7 @@
     Author     : safaa
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="controller.DBController"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Category"%>
@@ -73,37 +74,37 @@
 
             <div id="indexRightColumn">              
                 <div class="categoryBox">
-                    <a href="category.jsp">
+                    <a href="http://localhost:8080/YATT/CategoryServlet?category=Tops">
                         <img src=<%=topImageUrl%> alt="Top category image" style="height: 176px;width: 212px;">
                              <span class="categoryLabelText"><%=topName%></span>
                     </a>
                 </div>
                 <div class="categoryBox">
-                    <a href="category.jsp">
+                    <a href="http://localhost:8080/YATT/CategoryServlet?category=Bottoms">
                         <img src=<%=bottomImageUrl%> alt="Bottom category image" style="height: 176px;width: 212px;">
                              <span class="categoryLabelText"><%=bottomName%></span>
                     </a>
                 </div>
                 <div class="categoryBox">
-                    <a href="category.jsp">
+                    <a href="http://localhost:8080/YATT/CategoryServlet?category=Dresses">
                         <img src=<%=dressImageUrl%> alt="Dress category image" style="height: 176px;width: 212px;">
                              <span class="categoryLabelText"><%=dressName%></span>
                     </a>
                 </div>
                 <div class="categoryBox">
-                    <a href="category.jsp">
+                    <a href="http://localhost:8080/YATT/CategoryServlet?category=Accessories">
                         <img src=<%=accImageUrl%> alt="Accessory category image" style="height: 176px;width: 212px;">
                              <span class="categoryLabelText"><%=accName%></span>
                     </a>
                 </div>
                 <div class="categoryBox">
-                    <a href="category.jsp">
+                    <a href="http://localhost:8080/YATT/CategoryServlet?category=Underwear">
                         <img src=<%=underwearImageUrl%> alt="Underwear category image" style="height: 176px;width: 212px;">
                              <span class="categoryLabelText"><%=underwearName%></span>
                     </a>
                 </div>
                 <div class="categoryBox">
-                    <a href="category.jsp">
+                    <a href="http://localhost:8080/YATT/CategoryServlet?category=Gift Card">
                         <img src=<%=giftImageUrl%> alt="Gift card category image" style="height: 176px;width: 212px;">
                              <span class="categoryLabelText"><%=giftName%></span>
                     </a>

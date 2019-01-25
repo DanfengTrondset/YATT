@@ -49,7 +49,6 @@ public class AccountServlet extends HttpServlet {
                 // Notify user
             }
         }
-
     }
 
     @Override
