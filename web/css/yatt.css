@@ -111,7 +111,7 @@ table {
 .categoryBox {
     height: 176px;
     width: 212px;
-    margin: 18px 30px 2px;
+    margin: 18px 30px 12px;
     float: inherit;
     background: #FEE9CC;
 }

@@ -29,12 +29,20 @@ ENGINE = InnoDB;
 -- Table `yattdb`.`category`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `yattdb`.`category` (
-  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `imageURL` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+  `imageURL` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`name`),
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC))
 ENGINE = InnoDB;
+INSERT INTO category 
+    (name,imageURL) 
+VALUES 
+    ('Tops','img/top_category.jpg'),
+    ('Bottoms','img/bottom_category.jpg'),
+    ('Dresses','img/dress_category.jpg'),
+    ('Accessories','img/accessory_category.jpg'),
+    ('Underwear','img/underwear_category.jpg'),
+    ('Gift Card','img/gift_card_category.png');
 
 
 -- -----------------------------------------------------
@@ -47,28 +55,6 @@ CREATE TABLE IF NOT EXISTS `yattdb`.`product` (
   `imageURL` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `yattdb`.`category_has_product`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `yattdb`.`category_has_product` (
-  `category_id` INT NOT NULL,
-  `product_id` INT NOT NULL,
-  PRIMARY KEY (`category_id`, `product_id`),
-  INDEX `fk_category_has_product_product1_idx` (`product_id` ASC),
-  INDEX `fk_category_has_product_category_idx` (`category_id` ASC),
-  CONSTRAINT `fk_category_has_product_category`
-    FOREIGN KEY (`category_id`)
-    REFERENCES `yattdb`.`category` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_category_has_product_product1`
-    FOREIGN KEY (`product_id`)
-    REFERENCES `yattdb`.`product` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -97,6 +83,28 @@ CREATE TABLE IF NOT EXISTS `yattdb`.`cart_has_product` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_cart_has_product_product1`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `yattdb`.`product` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `yattdb`.`category_has_product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `yattdb`.`category_has_product` (
+  `category_name` VARCHAR(45) NOT NULL,
+  `product_id` INT NOT NULL,
+  PRIMARY KEY (`category_name`, `product_id`),
+  INDEX `fk_category_has_product_product1_idx` (`product_id` ASC),
+  INDEX `fk_category_has_product_category1_idx` (`category_name` ASC),
+  CONSTRAINT `fk_category_has_product_category1`
+    FOREIGN KEY (`category_name`)
+    REFERENCES `yattdb`.`category` (`name`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_category_has_product_product1`
     FOREIGN KEY (`product_id`)
     REFERENCES `yattdb`.`product` (`id`)
     ON DELETE NO ACTION
