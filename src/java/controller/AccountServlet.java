@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,11 @@ public class AccountServlet extends HttpServlet {
         if (action.equals("login")) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            if (DBController.loginUser(email, password)) {
+            Customer customer = new Customer();
+            customer.setEmail(email);
+            customer.setPassword(password);
+            if (DBController.loginUser(customer)) {
+                request.setAttribute("email", email);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
                 dispatcher.forward(request, response);
             } else {
@@ -46,7 +51,9 @@ public class AccountServlet extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
                 dispatcher.forward(request, response);
             } else {
-                // Notify user
+                // miss field
+
+                // email already used
             }
         }
     }

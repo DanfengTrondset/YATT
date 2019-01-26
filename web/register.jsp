@@ -55,6 +55,10 @@
                 <input type="password" id="repeat_password_register" name="repeat_password_register" required><br><br><br>
                 <button id="btn_register" type="submit">Register</button>
             </form>
+            <label>Have an account?</label>
+            <a href="register.jsp">
+                Login
+            </a>
         </div>
     </body>
 </html>

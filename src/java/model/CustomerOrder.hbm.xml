@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-Jan-2019 16:09:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.CustomerOrder" table="customer_order" catalog="yattdb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="model.Customer" fetch="select">
+            <column name="customer_email" length="45" not-null="true" />
+        </many-to-one>
+        <property name="status" type="string">
+            <column name="status" length="45" not-null="true" />
+        </property>
+        <set name="orderedProducts" table="ordered_product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_order_id" not-null="true" />
+            </key>
+            <one-to-many class="model.OrderedProduct" />
+        </set>
+    </class>
+</hibernate-mapping>

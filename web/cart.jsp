@@ -1,3 +1,8 @@
+<%@page import="java.util.Iterator"%>
+<%@page import="model.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="controller.DBController"%>
+<%@page import="model.OrderedProduct"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,6 +11,10 @@
         <link rel="stylesheet" type="text/css" href="css/yatt.css">
         <title>Shopping Cart</title>
     </head>
+    <%
+        String orderid = request.getAttribute("orderid").toString();
+        List<OrderedProduct> orderedProducts = DBController.getOrderedProductsOf(Integer.parseInt(orderid));
+    %>
     <body>
         <div id="main">
             <div id="header">
@@ -37,20 +46,29 @@
                         <th>price</th>
                         <th>quantity</th>
                     </tr>
-
+                    <%
+                        for (Iterator<OrderedProduct> iterator = orderedProducts.iterator(); iterator.hasNext();) {
+                            OrderedProduct orderedProduct = iterator.next();
+                            int pid = orderedProduct.getId().getProductId();
+                            Product product = DBController.getProduct(pid);
+                            String image = product.getImageUrl();
+                            String name = product.getName();
+                            int price = product.getPrice();
+                            int quantity = orderedProduct.getQuantity();
+                    %>
                     <tr>
                         <td class="lightBlue">
-                            <img src="#" alt="product image">
+                            <img src="<%=image%>" alt="product image">
                         </td>
-                        <td class="lightBlue">[ product name ]</td>
-                        <td class="lightBlue">[ price ]</td>
+                        <td class="lightBlue"><%=name%></td>
+                        <td class="lightBlue"><%=price%></td>
                         <td class="lightBlue">
 
                             <form action="updateCart" method="post">
                                 <input type="text"
                                        maxlength="2"
                                        size="2"
-                                       value="1"
+                                       value="<%=quantity%>"
                                        name="quantity">
                                 <input type="submit"
                                        name="submit"
@@ -58,48 +76,7 @@
                             </form>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td class="white">
-                            <img src="#" alt="product image">
-                        </td>
-                        <td class="white">[ product name ]</td>
-                        <td class="white">[ price ]</td>
-                        <td class="white">
-
-                            <form action="updateCart" method="post">
-                                <input type="text"
-                                       maxlength="2"
-                                       size="2"
-                                       value="1"
-                                       name="quantity">
-                                <input type="submit"
-                                       name="submit"
-                                       value="update button">
-                            </form>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="lightBlue">
-                            <img src="#" alt="product image">
-                        </td>
-                        <td class="lightBlue">[ product name ]</td>
-                        <td class="lightBlue">[ price ]</td>
-                        <td class="lightBlue">
-
-                            <form action="updateCart" method="post">
-                                <input type="text"
-                                       maxlength="2"
-                                       size="2"
-                                       value="1"
-                                       name="quantity">
-                                <input type="submit"
-                                       name="submit"
-                                       value="update button">
-                            </form>
-                        </td>
-                    </tr>
+                    <%}%>
 
                 </table>
 

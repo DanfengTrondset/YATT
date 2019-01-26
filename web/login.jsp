@@ -51,6 +51,11 @@
                 <input type="password" id="password" name="password" required><br><br><br>
                 <button id="btn_login" type="submit">Login</button>
             </form>
+
+            <label>Don't have an account?</label>
+            <a href="register.jsp">
+                Register
+            </a>
         </div>
     </body>
 </html>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : category
-    Created on : Jan 22, 2019, 11:19:01 PM
-    Author     : safaa
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -13,6 +7,7 @@
 <html>
     <%
         String category = request.getParameter("category");
+        String email = request.getParameter("email");
         List<Product> products = DBController.getProductForCategory(category);
     %>
     <head>
@@ -54,7 +49,7 @@
                     %>
                     <tr>
                         <td class="lightBlue">
-                            <img src=<%=image%>
+                            <img src="<%=image%>" alt="product image">
                         </td>
                         <td class="lightBlue">
                             <%=name%><br>
@@ -62,8 +57,8 @@
                         </td>
                         <td class="lightBlue"> <%=price%> </td>
                         <td class="lightBlue">
-                            <form action="#" method="post">
-                                <input type="submit" value="purchase button">
+                            <form action="CategoryServlet?action=addToCart&pid=<%=id%>&email=<%=email%>" method="post">
+                                <input type="submit" value="Add to Cart">
                             </form>
                         </td>
                     </tr>

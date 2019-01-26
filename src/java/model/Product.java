@@ -1,5 +1,5 @@
 package model;
-// Generated 25-Jan-2019 12:20:17 by Hibernate Tools 4.3.1
+// Generated 26-Jan-2019 16:09:03 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,30 +12,31 @@ public class Product  implements java.io.Serializable {
 
 
      private Integer id;
+     private Category category;
      private String name;
      private String description;
      private String imageUrl;
      private int price;
-     private Set categories = new HashSet(0);
-     private Set carts = new HashSet(0);
+     private Set orderedProducts = new HashSet(0);
 
     public Product() {
     }
 
 	
-    public Product(String name, String description, String imageUrl, int price) {
+    public Product(Category category, String name, String description, String imageUrl, int price) {
+        this.category = category;
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
         this.price = price;
     }
-    public Product(String name, String description, String imageUrl, int price, Set categories, Set carts) {
+    public Product(Category category, String name, String description, String imageUrl, int price, Set orderedProducts) {
+       this.category = category;
        this.name = name;
        this.description = description;
        this.imageUrl = imageUrl;
        this.price = price;
-       this.categories = categories;
-       this.carts = carts;
+       this.orderedProducts = orderedProducts;
     }
    
     public Integer getId() {
@@ -44,6 +45,13 @@ public class Product  implements java.io.Serializable {
     
     public void setId(Integer id) {
         this.id = id;
+    }
+    public Category getCategory() {
+        return this.category;
+    }
+    
+    public void setCategory(Category category) {
+        this.category = category;
     }
     public String getName() {
         return this.name;
@@ -73,19 +81,12 @@ public class Product  implements java.io.Serializable {
     public void setPrice(int price) {
         this.price = price;
     }
-    public Set getCategories() {
-        return this.categories;
+    public Set getOrderedProducts() {
+        return this.orderedProducts;
     }
     
-    public void setCategories(Set categories) {
-        this.categories = categories;
-    }
-    public Set getCarts() {
-        return this.carts;
-    }
-    
-    public void setCarts(Set carts) {
-        this.carts = carts;
+    public void setOrderedProducts(Set orderedProducts) {
+        this.orderedProducts = orderedProducts;
     }
 
 

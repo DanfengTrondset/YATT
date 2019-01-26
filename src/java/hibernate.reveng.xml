@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-    <schema-selection match-catalog="yattdb"/>
-    <table-filter match-name="cart_has_product"/>
-    <table-filter match-name="category_has_product"/>
-    <table-filter match-name="cart"/>
-    <table-filter match-name="product"/>
-    <table-filter match-name="category"/>
-    <table-filter match-name="customer"/>
+  <schema-selection match-catalog="yattdb"/>
+  <table-filter match-name="category"/>
+  <table-filter match-name="product"/>
+  <table-filter match-name="ordered_product"/>
+  <table-filter match-name="customer"/>
+  <table-filter match-name="customer_order"/>
 </hibernate-reverse-engineering>

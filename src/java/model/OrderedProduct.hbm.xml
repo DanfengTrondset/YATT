@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-Jan-2019 16:09:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.OrderedProduct" table="ordered_product" catalog="yattdb" optimistic-lock="version">
+        <composite-id name="id" class="model.OrderedProductId">
+            <key-property name="customerOrderId" type="int">
+                <column name="customer_order_id" />
+            </key-property>
+            <key-property name="productId" type="int">
+                <column name="product_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="customerOrder" class="model.CustomerOrder" update="false" insert="false" fetch="select">
+            <column name="customer_order_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="product" class="model.Product" update="false" insert="false" fetch="select">
+            <column name="product_id" not-null="true" />
+        </many-to-one>
+        <property name="quantity" type="int">
+            <column name="quantity" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
