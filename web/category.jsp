@@ -22,20 +22,28 @@
                 <div id="widgetBar">
 
                     <div class="headerWidget">
-                        <a href="cart.jsp">shopping cart</a>
+                        <a href="cart.jsp">Shopping Cart</a>  
                     </div>
-
+                    <div class="headerWidget">
+                        <a href="index.jsp">Home</a>
+                    </div>
                 </div>
-
                 <a href="#">
                     <img src="img/YATT.png" id="logo" alt="YATT logo">
                 </a>
+                <img src="img/YATTlogo.png" id="logoText" alt="Yatt logo text">
             </div>
 
             <div id="categoryRightColumn">
-                <p id="categoryTitle"> selected category </p>
+                <p id="categoryTitle"> <%=category%> </p>
 
                 <table id="productTable">
+                    <tr class="headerList">
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th> </th>
+                    </tr>
                     <%
                         Iterator<Product> iterator = products.iterator();
                         while (iterator.hasNext()) {
@@ -48,25 +56,32 @@
                             System.out.println("in category.jsp: " + image);
                     %>
                     <tr>
-                        <td class="lightBlue">
+                        <td>
                             <img src="<%=image%>" alt="product image">
+                            
                         </td>
-                        <td class="lightBlue">
+                        <td>
                             <%=name%><br>
                             <span class="smallText"><%=description%></span>
                         </td>
-                        <td class="lightBlue"> <%=price%> </td>
-                        <td class="lightBlue">
+                        <td> <%=price%> </td>
+                        <td>
                             <form action="CategoryServlet?action=addToCart&pid=<%=id%>&email=<%=email%>" method="post">
                                 <input type="submit" value="Add to Cart">
                             </form>
+                                
                         </td>
                     </tr>
+                    
                     <%}%>
 
                 </table>
             </div>
-
+            <div id="footer">
+                <hr>
+                <p id="footerText"> Location: Kristianstad,Sweden </p>
+                <p id="footerText"> Email Us: service@yatt.com </p>
+            </div>
         </div>
     </body>
 </html>

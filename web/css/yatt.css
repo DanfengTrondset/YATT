@@ -1,10 +1,7 @@
-/* 
-    Created on : Jan 22, 2019, 11:26:07 PM
-    Author     : safaa
-*/
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-    width: 850px;
+    width: 1000px;
     text-align: center;
     margin: 20px auto;
 }
@@ -13,15 +10,29 @@ hr {
     border: 0;
     background-color: #333;
     height: 1px;
-    margin: 0 25px;
-    width: 300px;
+    margin: auto;
+    width: 500px;
 }
 
 table {
-    margin: 0 20px;
+    width: 1000px;
+    background-color: #FFF;
+    margin: 0 auto;
     border-spacing: 0;
     text-align: center;
-    border: solid 1px #f5eabe;
+    border: solid 2px #696969;
+    padding: 10px;
+}
+
+table img {
+    height: 218px;
+    width: 151px;
+    margin-top: 6px;
+    margin-bottom: 2px;
+}
+
+a {
+    text-decoration: none !important;
 }
 
 
@@ -32,8 +43,6 @@ table {
     margin: 20px 30px;
     text-align: left;
 }
-
-.lightBlue { background-color: #edf8f7 }
 
 .white { background-color: #fff }
 
@@ -49,8 +58,11 @@ table {
 .smallText { font-size: small }
 
 #header {
-    height: 250px;
+    height: 200px;
     background: #fff;
+}
+.headerList {
+    height: 50px;
 }
 #logo {
     height: 155px;
@@ -80,20 +92,27 @@ table {
     width: 194px;
     margin: 15px;
     color: white;
-    font-size: small;
+    font-size: medium;
     float: right;
     line-height: 25px;
     cursor: pointer;
     border: none;
     padding: 8px;
-    background: #FF8C00;
+    background: #C8BEAB;
+    border: solid 2px #75514A;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.headerWidget a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #75514A;
 }
 
 #footer {
     height: 65px;
-    /*
-    width: 350px;
-    */
+    padding-top: 25px;
     font-size: small;
     clear: left;
     background: #fff;
@@ -102,30 +121,66 @@ table {
 
 
 #indexRightColumn {
-    height: 400px;
-    /*width: 500px;*/
+    padding: 0px 0px 0px 30px;
+    text-align: center;
     float: left;
-    background: #fff;
+    background: #FFF;
 }
 
 .categoryBox {
-    height: 176px;
-    width: 212px;
-    margin: 18px 30px 12px;
+    height: 437px;
+    width: 323px;
+    margin: 7px auto 7px;
     float: inherit;
-    background: #FEE9CC;
+    background: none;
+}
+
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 437px;
+  width: 303px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #FFF;
+}
+
+.text {
+  color: #000;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.categoryBox:hover .overlay {
+  opacity: .75;
 }
 
 .categoryLabelText {
     line-height: 150%;
     font-size: large;
+    font-weight: bold;
+    color: #000;
 }
+
+
 
 
 /* category page styles */
 #categoryRightColumn {
     margin-top: 10px;
-    width: 900px;
+    width: 100%;
     float: left;
 }
 
@@ -143,11 +198,15 @@ table {
 }
 
 #categoryTitle {
-    margin: -34px 180px 0 0;
-    font-size: x-large;
+    margin: -34px 0 0 0;
+    font-size: medium;
+    font-weight: bold;
     float: right;
-    background-color: #f5eabe;
-    padding: 7px;
+    background: #C8BEAB;
+    color: #75514A;
+    border: solid 2px #75514A;
+    border-bottom: none !important;
+    padding: 9px;
 }
 
 .categoryText {
@@ -155,12 +214,11 @@ table {
     font-size: x-large;
 }
 
-#productTable { width: 800px }
-
-#productTable tr { height: 90px }
-
-#productTable td { width: 800px }
-
+#productTable td { 
+    width: 145px;
+    height: 90px;
+    border-top: solid 1px #C8BEAB;
+}
 
 /* cart page styles */
 #actionBar {
@@ -171,11 +229,10 @@ table {
 
 #subtotal { margin: 40px 0 20px 430px }
 
-#cartTable { width: 750px }
-
 #cartTable td {
     width: 145px;
     height: 90px;
+    border-top: solid 1px #C8BEAB;
 }
 
 
@@ -200,7 +257,10 @@ table {
     background-color: #c3e3e0;
 }
 
-
+#centerColumn {
+    margin-top: 10px;
+    float: left;
+}
 /* confirmation page styles */
 #confirmationText {
     margin: 0 20px 20px;

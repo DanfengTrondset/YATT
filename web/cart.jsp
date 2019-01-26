@@ -13,6 +13,7 @@
     </head>
     <%
         String orderid = request.getAttribute("orderid").toString();
+        String email = request.getParameter("email");
         List<OrderedProduct> orderedProducts = DBController.getOrderedProductsOf(Integer.parseInt(orderid));
     %>
     <body>
@@ -21,30 +22,28 @@
                 <div id="widgetBar">
 
                     <div class="headerWidget">
-                        <a href="login.jsp">Account</a>
+                        <a href="cart.jsp">Shopping Cart</a>  
+                    </div>
+                    <div class="headerWidget">
+                        <a href="index.jsp">Home</a>
                     </div>
                 </div>
+                <a href="#">
+                    <img src="img/YATT.png" id="logo" alt="YATT logo">
+                </a>
+                <img src="img/YATTlogo.png" id="logoText" alt="Yatt logo text">
             </div>
 
             <div id="centerColumn">
-
-                <p>Your shopping cart contains x items.</p>
-
-                <div id="actionBar">
-                    <a href="#" class="bubble hMargin">clear cart</a>
-                    <a href="index.jsp" class="bubble hMargin">continue shopping</a>
-                    <a href="checkout.jsp" class="bubble hMargin">checkout</a>
-                </div>
-
-                <h4 id="subtotal">[ subtotal: xxx ]</h4>
+                <p id="categoryTitle"> [ Subtotal: xxx ] </p>
 
                 <table id="cartTable">
 
-                    <tr class="header">
-                        <th>product</th>
-                        <th>name</th>
-                        <th>price</th>
-                        <th>quantity</th>
+                    <tr class="headerList">
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
                     </tr>
                     <%
                         for (Iterator<OrderedProduct> iterator = orderedProducts.iterator(); iterator.hasNext();) {
@@ -57,14 +56,14 @@
                             int quantity = orderedProduct.getQuantity();
                     %>
                     <tr>
-                        <td class="lightBlue">
+                        <td>
                             <img src="<%=image%>" alt="product image">
                         </td>
-                        <td class="lightBlue"><%=name%></td>
-                        <td class="lightBlue"><%=price%></td>
-                        <td class="lightBlue">
+                        <td><%=name%></td>
+                        <td><%=price%></td>
+                        <td>
 
-                            <form action="updateCart" method="post">
+                            <form action="CategoryServlet?action=editCart&orderid=<%=orderid%>&pid=<%=pid%>&email=<%=email%>" method="post">
                                 <input type="text"
                                        maxlength="2"
                                        size="2"
@@ -84,7 +83,8 @@
 
             <div id="footer">
                 <hr>
-                <p id="footerText">[ footer text ]</p>
+                <p id="footerText"> Location: Kristianstad,Sweden </p>
+                <p id="footerText"> Email Us: service@yatt.com </p>
             </div>
         </div>
     </body>

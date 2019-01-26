@@ -24,12 +24,12 @@ public class CategoryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        String email = request.getParameter("email");
-        int pid = Integer.parseInt(request.getParameter("pid"));
-        System.out.println(action + email + pid);
 
         if (action.equals("addToCart")) {
 
+            String email = request.getParameter("email");
+            int pid = Integer.parseInt(request.getParameter("pid"));
+            System.out.println(action + email + pid);
             int orderid = DBController.getCurrentOrderOfCustomer(email);
             System.out.println("order id: " + orderid);
 
@@ -49,6 +49,13 @@ public class CategoryServlet extends HttpServlet {
             request.setAttribute("orderid", orderid);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/cart.jsp");
             dispatcher.forward(request, response);
+        }
+
+        if (action.equals("editCart")) {
+            String email = request.getParameter("email");
+            int pid = Integer.parseInt(request.getParameter("pid"));
+            int orderid = Integer.parseInt(request.getParameter("orderid"));
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
         }
 
     }
