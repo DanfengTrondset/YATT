@@ -65,7 +65,7 @@
             <div id="indexRightColumn">              
                 <div class="categoryBox">
                     <div class="container">
-                        <a href="http://localhost:8080/YATT/CategoryServlet?action=viewCategory&category=Tops&email=<%=email%>">
+                        <a href="http://localhost:8080/YATT/CategoryServlet?category=Tops&email=<%=email%>">
                             <img src="<%=topImageUrl%>" alt="Top category image">
                             <div class="overlay">
                                 <div class="text">Tops</div>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="categoryBox">
                     <div class="container">
-                        <a href="http://localhost:8080/YATT/CategoryServlet?action=viewCategory&category=Bottoms&email=<%=email%>">
+                        <a href="http://localhost:8080/YATT/CategoryServlet?category=Bottoms&email=<%=email%>">
                             <img src="<%=bottomImageUrl%>" alt="Bottom category image">
                             <div class="overlay">
                                 <div class="text">Bottoms</div>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="categoryBox">
                     <div class="container">
-                        <a href="http://localhost:8080/YATT/CategoryServlet?action=viewCategory&category=Dresses&email=<%=email%>">
+                        <a href="http://localhost:8080/YATT/CategoryServlet?category=Dresses&email=<%=email%>">
                             <img src="<%=dressImageUrl%>" alt="Dress category image">
                             <div class="overlay">
                                 <div class="text">Dresses</div>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="categoryBox">
                     <div class="container">
-                        <a href="http://localhost:8080/YATT/CategoryServlet?action=viewCategory&category=Accessories&email=<%=email%>">
+                        <a href="http://localhost:8080/YATT/CategoryServlet?category=Accessories&email=<%=email%>">
                             <img src="<%=accImageUrl%>" alt="Accessory category image">
                             <div class="overlay">
                                 <div class="text">Accessories</div>
@@ -105,7 +105,7 @@
                 </div>
                 <div class="categoryBox">
                     <div class="container">
-                        <a href="http://localhost:8080/YATT/CategoryServlet?action=viewCategory&category=Underwear&email=<%=email%>">
+                        <a href="http://localhost:8080/YATT/CategoryServlet?category=Underwear&email=<%=email%>">
                             <img src="<%=underwearImageUrl%>" alt="Underwear category image">
                             <div class="overlay">
                                 <div class="text">Underwear</div>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="categoryBox">
                     <div class="container">
-                        <a href="http://localhost:8080/YATT/CategoryServlet?action=viewCategory&category=Gift Card&email=<%=email%>">
+                        <a href="http://localhost:8080/YATT/CategoryServlet?category=Gift Card&email=<%=email%>">
                             <img src="<%=giftImageUrl%>" alt="Gift card category image">
                             <div class="overlay">
                                 <div class="text">Gift Cards</div>

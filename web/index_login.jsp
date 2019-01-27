@@ -21,19 +21,16 @@
                 <button id="btn_login" type="submit">Login</button>
             </form>
         </div>
-        <%
-            if (request.getAttribute("errorMessage") != null) {
-                String errorMessage = request.getAttribute("errorMessage").toString();
-        %>
-        <div class="error">
-            <p class="error_text"><%=errorMessage%></p>
-        </div>
-        <%}%>
         <div class="register_text">
             <label>Don't have an account?</label>
             <a href="register.jsp">
                 Register
             </a>
+        </div>
+        <div id="footer">
+            <hr>
+            <p id="footerText"> Location: Kristianstad,Sweden </p>
+            <p id="footerText"> Email Us: <a href="mailto: service@yatt.com">service@yatt.com</a> </p>
         </div>
     </body>
 </html>
