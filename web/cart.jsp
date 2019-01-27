@@ -9,7 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/yatt.css">
-        <title>Shopping Cart</title>
+        <title>YATT - Shopping Cart</title>
     </head>
     <%
         String orderid = request.getAttribute("orderid").toString();
@@ -20,12 +20,8 @@
         <div id="main">
             <div id="header">
                 <div id="widgetBar">
-
                     <div class="headerWidget">
-                        <a href="cart.jsp">Shopping Cart</a>  
-                    </div>
-                    <div class="headerWidget">
-                        <a href="index.jsp">Home</a>
+                        <a href="home.jsp">Home</a>
                     </div>
                 </div>
                 <a href="#">
@@ -57,7 +53,7 @@
                     %>
                     <tr>
                         <td>
-                            <img src="<%=image%>" alt="product image">
+                            <img id="item_image" src="<%=image%>" alt="product image">
                         </td>
                         <td><%=name%></td>
                         <td><%=price%></td>
@@ -71,7 +67,7 @@
                                        name="quantity">
                                 <input type="submit"
                                        name="submit"
-                                       value="update button">
+                                       value="Update">
                             </form>
                         </td>
                     </tr>
@@ -84,7 +80,7 @@
             <div id="footer">
                 <hr>
                 <p id="footerText"> Location: Kristianstad,Sweden </p>
-                <p id="footerText"> Email Us: service@yatt.com </p>
+                <p id="footerText"> Email Us: <a href="mailto: service@yatt.com">service@yatt.com</a> </p>
             </div>
         </div>
     </body>

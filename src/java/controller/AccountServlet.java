@@ -29,7 +29,7 @@ public class AccountServlet extends HttpServlet {
             customer.setPassword(password);
             if (DBController.loginUser(customer)) {
                 request.setAttribute("email", email);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
                 dispatcher.forward(request, response);
             } else {
                 // Notify user

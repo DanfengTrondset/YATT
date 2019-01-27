@@ -7,7 +7,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/yatt.css">
-        <title>YATT Online Store</title>
+        <title>YATT - Home</title>
     </head>
     <%
         String email = (String) request.getAttribute("email");
@@ -50,15 +50,11 @@
     %>
     <body>
         <div id="main">
-
             <div id="header">
                 <div id="widgetBar">
 
                     <div class="headerWidget">
-                        <a href="cart.jsp">Shopping Cart</a>  
-                    </div>
-                    <div class="headerWidget">
-                        <a href="index.jsp">Home</a>
+                        <a href="CategoryServlet?action=viewCart&email=<%=email%>">Shopping Cart</a>  
                     </div>
                 </div>
                 <a href="#">
@@ -66,7 +62,6 @@
                 </a>
                 <img src="img/YATTlogo.png" id="logoText" alt="Yatt logo text">
             </div>
-
             <div id="indexRightColumn">              
                 <div class="categoryBox">
                     <div class="container">
@@ -133,7 +128,7 @@
             <div id="footer">
                 <hr>
                 <p id="footerText"> Location: Kristianstad,Sweden </p>
-                <p id="footerText"> Email Us: service@yatt.com </p>
+                <p id="footerText"> Email Us: <a href="mailto: service@yatt.com">service@yatt.com</a> </p>
             </div>
         </div>
     </body>

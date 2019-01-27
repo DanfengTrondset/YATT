@@ -57,8 +57,22 @@ a {
 
 .smallText { font-size: small }
 
+input[type=submit] {
+    width: 125px;
+    background: none;
+    padding: 5px;
+    font-weight: bold;
+    color: #75514A;
+    border: solid 2px #75514A;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background: beige;
+}
+
+/* Header */
 #header {
-    height: 200px;
+    height: 150px;
     background: #fff;
 }
 .headerList {
@@ -79,6 +93,11 @@ a {
     font-family: 'American Typewriter', Courier, monospace;
     font-size: 50px;
     color: #333;
+}
+
+#logoText_start {
+    float: none;
+    margin: 20px auto 0px;
 }
 
 #widgetBar {
@@ -118,6 +137,11 @@ a {
     background: #fff;
 }
 
+#footerText a {
+    color: black;
+    font-weight: bold;
+}
+
 
 
 #indexRightColumn {
@@ -136,35 +160,35 @@ a {
 }
 
 .container {
-  position: relative;
-  width: 50%;
+    position: relative;
+    width: 50%;
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 437px;
-  width: 303px;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #FFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 437px;
+    width: 303px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #FFF;
 }
 
 .text {
-  color: #000;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+    color: #000;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
 .categoryBox:hover .overlay {
-  opacity: .75;
+    opacity: .75;
 }
 
 .categoryLabelText {
@@ -220,6 +244,11 @@ a {
     border-top: solid 1px #C8BEAB;
 }
 
+/* Zooming for Item Images */
+#item_image:hover {
+  cursor: pointer;
+  transform: scale(2);
+}
 /* cart page styles */
 #actionBar {
     margin: 30px;
@@ -287,4 +316,42 @@ a {
     margin-left: 15%;
     text-align: left;
     height: 200px;
+}
+/* Sign In/Register Page Styles */
+#btn_register:hover, #btn_login:hover {
+    opacity: 0.8;
+}
+#email, #password, #username_register,#email_register, #password_register, #repeat_password_register{
+    width: 95%;
+    padding: 5px;
+}
+#container_register, #container_login{
+    padding: 0px;
+    width: 400px;
+    margin: auto;
+}
+#container_login label, #container_register label {
+    float: left;
+}
+#yatt_register, #yatt_login{
+    text-align: center;
+    size: 18px;
+    font-family: Arial Black;
+}
+
+#btn_login, #btn_register {
+    background-color: #C8BEAB;
+    color: #75514A;
+    font-size: 16px;
+    font-weight: bold;
+    border: solid 2px #75514A;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+}
+.register_text {
+    margin-top: 10px;
+}
+.register_text a {
+    font-weight: bold;
 }

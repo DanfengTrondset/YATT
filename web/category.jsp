@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/yatt.css">
-        <title><%=category%></title>
+        <title>YATT - <%=category%></title>
     </head>
 
     <body>
@@ -57,8 +57,7 @@
                     %>
                     <tr>
                         <td>
-                            <img src="<%=image%>" alt="product image">
-                            
+                            <img id="item_image" src="<%=image%>" alt="Product Image">
                         </td>
                         <td>
                             <%=name%><br>
@@ -69,10 +68,10 @@
                             <form action="CategoryServlet?action=addToCart&pid=<%=id%>&email=<%=email%>" method="post">
                                 <input type="submit" value="Add to Cart">
                             </form>
-                                
+
                         </td>
                     </tr>
-                    
+
                     <%}%>
 
                 </table>
@@ -80,7 +79,7 @@
             <div id="footer">
                 <hr>
                 <p id="footerText"> Location: Kristianstad,Sweden </p>
-                <p id="footerText"> Email Us: service@yatt.com </p>
+                <p id="footerText"> Email Us: <a href="mailto: service@yatt.com">service@yatt.com</a> </p>
             </div>
         </div>
     </body>
