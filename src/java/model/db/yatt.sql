@@ -51,7 +51,7 @@ VALUES
 CREATE TABLE IF NOT EXISTS `yattdb`.`product` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(256) NOT NULL,
   `imageURL` VARCHAR(45) NOT NULL,
   `price` INT NOT NULL,
   `category_name` VARCHAR(45) NOT NULL,
@@ -67,26 +67,26 @@ ENGINE = InnoDB;
 INSERT INTO product 
     (name,description,imageURL,price,category_name) 
 VALUES 
-    ('top1','d','img/top1.jpg','300','Tops'), 
-    ('top2','d','img/top2.jpg','300','Tops'),
-    ('top3','d','img/top3.jpg','300','Tops'),
-    ('top4','d','img/top4.jpg','300','Tops'),   
-    ('acc1','d','img/acc1.jpg','300','Accessories'),
-    ('acc2','d','img/acc2.jpg','300','Accessories'),
-    ('acc3','d','img/acc3.jpg','300','Accessories'),
-    ('acc4','d','img/acc4.jpg','300','Accessories'),
-    ('bottom1','d','img/bottom1.jpg','300','Bottoms'),
-    ('bottom2','d','img/bottom2.jpg','300','Bottoms'),
-    ('bottom3','d','img/bottom3.jpg','300','Bottoms'),
-    ('bottom4','d','img/bottom4.jpg','300','Bottoms'),
-    ('dress1','d','img/dress1.jpg','300','Dresses'),
-    ('dress2','d','img/dress2.jpg','300','Dresses'),
-    ('dress3','d','img/dress3.jpg','300','Dresses'),
-    ('dress4','d','img/dress4.jpg','300','Dresses'),
-    ('under1','d','img/under1.jpg','300','Underwear'),
-    ('under2','d','img/under2.jpg','300','Underwear'),
-    ('under3','d','img/under3.jpg','300','Underwear'),
-    ('under4','d','img/under4.png','300','Underwear');
+    ('Double Side Black and White Jacket','Double-sided jacket with a contrast faux shearling collar and long sleeves. Featuring two side pockets, an adjustable collar with buckle and a zip-up front.','img/top1.jpg','1300','Tops'), 
+    ('Two Colour Training T-shirt','Two colour woven T-shirt with featured back details.','img/top2.jpg','150','Tops'),
+    ('Rope Chain Neck-Tie Shirt','A semi-sheer woven top featuring a V-neckline with self-tie straps, long buttoned-cuff sleeves, shirred seams throughout, and a curved hem.','img/top3.jpg','200','Tops'),
+    ('Contrast Tie-Nect Shirt','A semi-sheer woven shirt featuring a basic collar, contrast self-tie neck straps, short sleeves with banded trim, button-front closures, a darted bust, and curved hem.','img/top4.jpg','350','Tops'),   
+    ('Leather Hangbag','Handbag in soft leather. Two handles and a zip at top, detachable, adjustable shoulder strap, and two inner compartments, one with zip.','img/acc1.jpg','1200','Accessories'),
+    ('Polarized Light Sunglasses','Sunglasses with plastic and metal frames and tinted, UV-protective lenses.','img/acc2.jpg','650','Accessories'),
+    ('Leather Gloves','Keep your hands warm with these leather gloves featuring channel quilted trim.','img/acc3.jpg','250','Accessories'),
+    ('Lock Chain-Link Bracelet','A high-polish bracelet featuring a lock chain-link design and a toggle closure.','img/acc4.jpg','300','Accessories'),
+    ('Plaid High-Waist Ankle Pants','A pair of stretch-woven skinny pants featuring an allover plaid pattern, five-pocket construction, a zip fly, and a high-waist cut.','img/bottom1.jpg','200','Bottoms'),
+    ('Plaid Flare Pants','A pair of stretch-woven pants featuring a plaid pattern, elasticized high-rise waist, and a flare leg.','img/bottom2.jpg','250','Bottoms'),
+    ('High-Waist Skinny Jeans','A pair of skinny jeans with a five-pocket construction designed to fit high on the waist and slim and sleek through the leg.','img/bottom3.jpg','450','Bottoms'),
+    ('High-Rise Skinny Jeans','A pair of true vintage-inspired high-waisted skinny jeans featuring a super-stretch construction, five-pocket construction, zip fly, distressed accents, and a fit that sits on the natural waistline and is fitted through the leg.','img/bottom4.jpg','450','Bottoms'),
+    ('Striped Bodycon Dress','A ribbed knit dress featuring a contrast striped design, solid crew neck, long sleeves, and a bodycon silhouette.','img/dress1.jpg','280','Dresses'),
+    ('Chiffon Seft-Tie Floral Print Dress','A chiffon woven dress featuring a V-neckline, long buttoned sleeves, a round hemline, and self-tie sash belt.','img/dress2.jpg','350','Dresses'),
+    ('Belted Chiffon Maxi Dress','A chiffon woven wrapped dress with a V-next,middle length shirred sleeves, back pleat, a self-tie belted waist, and a maxi length.','img/dress3.jpg','300','Dresses'),
+    ('Floral Print Ruffle Dress','A woven midi dress featuring an allover floral print, round neckline secured by interior buttons, cap sleeves, notched collar, and a tulip hem.','img/dress4.jpg','650','Dresses'),
+    ('Microfiber Bra & Panty Set','A microfiber knit bra featuring a V-neckline, adjustable cami straps, banded waist, wire-free structured detail under the bust, and pull-on styling.','img/under1.jpg','300','Underwear'),
+    ('Low Impact - Sports Bra','A low-impact knit sports bra featuring a seamless construction, a crisscross back, V-neckline, adjustable straps, removable cups, and a moisture management wicking fabric.','img/under2.jpg','250','Underwear'),
+    ('Satin Linerie PJ Set','This two-piece satin lingerie pajama set comes with a relaxed cami top featuring a V-cut neck and back with scalloped floral lace that extends to form shoulder straps, and a matching pair of shorts with slant front pockets and an elasticized waistband.','img/under3.jpg','350','Underwear'),
+    ('Cotton Bra & Panty Set','A ribbed knit set with elasticized striped trim, featuring a sports bra with a scoop neck, as well as a high-leg cut panty with a cheeky bottom.','img/under4.jpg','450','Underwear');
 
 -- -----------------------------------------------------
 -- Table `yattdb`.`customer_order`

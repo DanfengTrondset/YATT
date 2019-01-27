@@ -386,4 +386,61 @@ public class DBController {
 
         return isSuccessful;
     }
+
+    public static boolean updateCart(int orderid, int pid, int quantity) {
+        boolean isSuccessful = false;
+
+        Session session = HibernateUtil.openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+
+            Query q = session.createSQLQuery("UPDATE ordered_product SET quantity=:quantity WHERE customer_order_id=:orderid AND product_id=:pid");
+            q.setParameter("quantity", quantity);
+            q.setParameter("orderid", orderid);
+            q.setParameter("pid", pid);
+            q.executeUpdate();
+
+            tx.commit();
+            isSuccessful = true;
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            throw e;
+        } finally {
+            session.close();
+        }
+
+        return isSuccessful;
+    }
+
+    public static boolean deleteOrderedProduct(int orderid, int pid) {
+        boolean isSuccessful = false;
+
+        Session session = HibernateUtil.openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+
+            Query q = session.createSQLQuery("DELETE FROM ordered_product WHERE customer_order_id=:orderid AND product_id=:pid");
+            q.setParameter("orderid", orderid);
+            q.setParameter("pid", pid);
+            q.executeUpdate();
+
+            tx.commit();
+            isSuccessful = true;
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            throw e;
+        } finally {
+            session.close();
+        }
+
+        return isSuccessful;
+    }
 }

@@ -61,7 +61,7 @@
                         </td>
                         <td>
                             <%=name%><br>
-                            <span class="smallText"><%=description%></span>
+                            <p class="smallText"><%=description%></p>
                         </td>
                         <td> <%=price%> </td>
                         <td>

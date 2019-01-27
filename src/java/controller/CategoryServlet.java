@@ -75,10 +75,21 @@ public class CategoryServlet extends HttpServlet {
         }
 
         if (action.equals("editCart")) {
-            String email = request.getParameter("email");
             int pid = Integer.parseInt(request.getParameter("pid"));
             int orderid = Integer.parseInt(request.getParameter("orderid"));
+            String email = request.getParameter("email");
             int quantity = Integer.parseInt(request.getParameter("quantity"));
+            if (quantity <= 0) {
+                // delete the orderedProduct
+                DBController.deleteOrderedProduct(orderid, pid);
+            } else {
+                // orderedProduct.setQuantity(q);
+                DBController.updateCart(orderid, pid, quantity);
+            }
+            request.setAttribute("orderid", orderid);
+            request.setAttribute("email", email);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/cart.jsp");
+            dispatcher.forward(request, response);
         }
 
         if (action.equals("checkout")) {

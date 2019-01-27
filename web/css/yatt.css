@@ -55,7 +55,9 @@ a {
 
 .hMargin { margin: 0 30px }
 
-.smallText { font-size: small }
+.smallText { 
+    font-size: small;
+}
 
 input[type=submit] {
     width: 125px;

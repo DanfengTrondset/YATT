@@ -15,7 +15,7 @@
             <column name="name" length="45" not-null="true" />
         </property>
         <property name="description" type="string">
-            <column name="description" length="45" not-null="true" />
+            <column name="description" length="256" not-null="true" />
         </property>
         <property name="imageUrl" type="string">
             <column name="imageURL" length="45" not-null="true" />
