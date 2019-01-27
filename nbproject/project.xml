@@ -24,6 +24,7 @@
             </test-roots>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>SEK</word>
             <word>yatt</word>
         </spellchecker-wordlist>
     </configuration>

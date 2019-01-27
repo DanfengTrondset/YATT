@@ -22,13 +22,13 @@
                 <div id="widgetBar">
 
                     <div class="headerWidget">
-                        <a href="cart.jsp">Shopping Cart</a>  
+                        <a href="CategoryServlet?action=viewCart&email=<%=email%>">Shopping Cart</a>  
                     </div>
                     <div class="headerWidget">
-                        <a href="index.jsp">Home</a>
+                        <a href="CategoryServlet?action=viewHome&email=<%=email%>">Home</a>
                     </div>
                 </div>
-                <a href="#">
+                <a href="CategoryServlet?action=viewHome&email=<%=email%>">
                     <img src="img/YATT.png" id="logo" alt="YATT logo">
                 </a>
                 <img src="img/YATTlogo.png" id="logoText" alt="Yatt logo text">

@@ -32,7 +32,9 @@ public class AccountServlet extends HttpServlet {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
                 dispatcher.forward(request, response);
             } else {
-                // Notify user
+                request.setAttribute("errorMessage", "Incorrect email or password.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/index_login.jsp");
+                dispatcher.forward(request, response);
             }
         }
 
@@ -46,13 +48,13 @@ public class AccountServlet extends HttpServlet {
             customer.setUserName(username);
             customer.setPassword(password);
 
-            if (DBController.RegisterUser(customer)) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+            if (password.equals(repeat_password) && DBController.RegisterUser(customer)) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/index_login.jsp");
                 dispatcher.forward(request, response);
             } else {
-                // miss field
-
-                // email already used
+                request.setAttribute("errorMessage", "Something went wrong, User Registration failed.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
+                dispatcher.forward(request, response);
             }
         }
     }

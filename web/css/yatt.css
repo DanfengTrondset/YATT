@@ -70,6 +70,20 @@ input[type=submit]:hover {
     background: beige;
 }
 
+.error {
+    height: 30px;
+    width: 400px;
+    margin: 10px auto 10px;
+    color: #C6484E;
+    font-weight: bold;
+    background-color: #FADDE0;
+    border: solid 1px #F2B1B8;
+}
+
+.error_text {
+    margin-top: 6px;
+}
+
 /* Header */
 #header {
     height: 150px;
@@ -131,7 +145,8 @@ input[type=submit]:hover {
 
 #footer {
     height: 65px;
-    padding-top: 25px;
+    padding-top: 50px;
+    padding-bottom: 25px;
     font-size: small;
     clear: left;
     background: #fff;
@@ -244,10 +259,21 @@ input[type=submit]:hover {
     border-top: solid 1px #C8BEAB;
 }
 
+#cart_buttons {
+    height: 75px;
+    margin-top: 15px;
+    margin-bottom: -25px;
+    width: 100%;
+    float: right;
+}
+#cart_buttons input {
+    margin-left: 20px;
+    float: right;
+}
 /* Zooming for Item Images */
 #item_image:hover {
-  cursor: pointer;
-  transform: scale(2);
+    cursor: pointer;
+    transform: scale(2);
 }
 /* cart page styles */
 #actionBar {

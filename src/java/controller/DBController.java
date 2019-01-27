@@ -1,17 +1,19 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import model.Category;
 import model.Customer;
 import model.CustomerOrder;
 import model.HibernateUtil;
 import model.OrderedProduct;
-import model.OrderedProductId;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import model.Product;
+import model.OrderedProductId;
 
 public class DBController {
 
@@ -333,4 +335,55 @@ public class DBController {
         return product;
     }
 
+    public static boolean clearOrderedProductsOf(int orderid) {
+        boolean isSuccessful = true;
+
+        Session session = HibernateUtil.openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+
+            Query q = session.createSQLQuery("DELETE FROM ordered_product WHERE customer_order_id=:orderid");
+            q.setParameter("orderid", orderid);
+            q.executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            isSuccessful = false;
+            throw e;
+        } finally {
+            session.close();
+        }
+
+        return isSuccessful;
+    }
+
+    public static boolean setOrderStatus(int orderid, String status) {
+        boolean isSuccessful = false;
+
+        Session session = HibernateUtil.openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+
+            CustomerOrder order = DBController.getCustomerOrder(orderid);
+            order.setStatus(status);
+            session.update(order);
+            tx.commit();
+            isSuccessful = true;
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            throw e;
+        } finally {
+            session.close();
+        }
+
+        return isSuccessful;
+    }
 }

@@ -14,10 +14,33 @@ public class CategoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String category = request.getParameter("cetegory");
+        String action = request.getParameter("action");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/category.jsp");
-        dispatcher.forward(request, response);
+        if (action.equals("viewCategory")) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/category.jsp");
+            dispatcher.forward(request, response);
+        }
+        if (action.equals("viewCart")) {
+            String email = request.getParameter("email");
+            int orderid = DBController.getCurrentOrderOfCustomer(email);
+
+            // no order
+            if (orderid == -1) {
+                orderid = DBController.createOrderForCustomer(email);
+                System.out.println("orderid is -1, new id");
+                System.out.println("new order id: " + orderid);
+            }
+            request.setAttribute("orderid", orderid);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/cart.jsp");
+            dispatcher.forward(request, response);
+        }
+
+        if (action.equals("viewHome")) {
+            String email = request.getParameter("email");
+            request.setAttribute("email", email);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 
     @Override
@@ -56,6 +79,39 @@ public class CategoryServlet extends HttpServlet {
             int pid = Integer.parseInt(request.getParameter("pid"));
             int orderid = Integer.parseInt(request.getParameter("orderid"));
             int quantity = Integer.parseInt(request.getParameter("quantity"));
+        }
+
+        if (action.equals("checkout")) {
+            int orderid = Integer.parseInt(request.getParameter("orderid"));
+            CustomerOrder order = DBController.getCustomerOrder(orderid);
+            String email = order.getCustomer().getEmail();
+            if (MailController.sendEmail(email)) {
+                // pop up success message
+                // go back to home
+                // customer_order.setStatus("complete");
+                if (DBController.setOrderStatus(orderid, "complete")) {
+                    request.setAttribute("email", email);
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
+                    dispatcher.forward(request, response);
+                }
+            } else {
+                // pop up fail message
+            }
+
+        }
+
+        if (action.equals("clear")) {
+            int orderid = Integer.parseInt(request.getParameter("orderid"));
+            if (DBController.clearOrderedProductsOf(orderid)) {
+                // pop up success message
+                // go back to home
+                String email = DBController.getCustomerOrder(orderid).getCustomer().getEmail();
+                request.setAttribute("email", email);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/home.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                // pop up fail message
+            }
         }
 
     }

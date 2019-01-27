@@ -15,23 +15,30 @@
         String orderid = request.getAttribute("orderid").toString();
         String email = request.getParameter("email");
         List<OrderedProduct> orderedProducts = DBController.getOrderedProductsOf(Integer.parseInt(orderid));
+
+        int subtotal = 0;
+        for (Iterator<OrderedProduct> iterator = orderedProducts.iterator(); iterator.hasNext();) {
+            OrderedProduct orderedProduct = iterator.next();
+            Product product = DBController.getProduct(orderedProduct.getId().getProductId());
+            subtotal += product.getPrice() * orderedProduct.getQuantity();
+        }
     %>
     <body>
         <div id="main">
             <div id="header">
                 <div id="widgetBar">
                     <div class="headerWidget">
-                        <a href="home.jsp">Home</a>
+                        <a href="CategoryServlet?action=viewHome&email=<%=email%>">Home</a>
                     </div>
                 </div>
-                <a href="#">
+                <a href="CategoryServlet?action=viewHome&email=<%=email%>">
                     <img src="img/YATT.png" id="logo" alt="YATT logo">
                 </a>
                 <img src="img/YATTlogo.png" id="logoText" alt="Yatt logo text">
             </div>
 
             <div id="centerColumn">
-                <p id="categoryTitle"> [ Subtotal: xxx ] </p>
+                <p id="categoryTitle">Subtotal: <%=subtotal%> SEK</p>
 
                 <table id="cartTable">
 
@@ -74,7 +81,15 @@
                     <%}%>
 
                 </table>
+            </div>
 
+            <div id="cart_buttons">
+                <form action="CategoryServlet?action=checkout&orderid=<%=orderid%>" method="post">
+                    <input type="submit" value="Checkout">
+                </form>
+                <form action="CategoryServlet?action=clear&orderid=<%=orderid%>" method="post">
+                    <input type="submit" value="Clear">
+                </form>
             </div>
 
             <div id="footer">
